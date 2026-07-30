@@ -1,0 +1,11 @@
+# Language Learning App - Python Dependencies
+# Audio generation and utilities
+
+# Google Text-to-Speech Library
+gtts==2.4.0
+
+# Optional: For advanced audio processing
+pydub==0.25.1
+
+# Optional: For batch processing and progress tracking
+tqdm==4.66.1

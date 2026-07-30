@@ -1,0 +1,139 @@
+{
+  "name": "Tamil",
+  "consonants": [
+    {"native": "க", "en": "ka", "hi": "क", "audioId": "ta-ka"},
+    {"native": "ங", "en": "nga", "hi": "ङ", "audioId": "ta-nga"},
+    {"native": "চ", "en": "cha", "hi": "च", "audioId": "ta-cha"},
+    {"native": "ஞ", "en": "nya", "hi": "ञ", "audioId": "ta-nya"},
+    {"native": "ট", "en": "ṭa", "hi": "ट", "audioId": "ta-ta"},
+    {"native": "ண", "en": "ṇa", "hi": "ण", "audioId": "ta-na"},
+    {"native": "त", "en": "tha", "hi": "त", "audioId": "ta-t"},
+    {"native": "ন", "en": "na", "hi": "न", "audioId": "ta-n"},
+    {"native": "प", "en": "pa", "hi": "प", "audioId": "ta-pa"},
+    {"native": "म", "en": "ma", "hi": "म", "audioId": "ta-ma"},
+    {"native": "य", "en": "ya", "hi": "य", "audioId": "ta-ya"},
+    {"native": "र", "en": "ra", "hi": "र", "audioId": "ta-ra"},
+    {"native": "ल", "en": "la", "hi": "ल", "audioId": "ta-la"},
+    {"native": "ว", "en": "va", "hi": "व", "audioId": "ta-va"},
+    {"native": "श", "en": "sha", "hi": "श", "audioId": "ta-sha"},
+    {"native": "ष", "en": "ṣha", "hi": "ष", "audioId": "ta-sa"},
+    {"native": "स", "en": "sa", "hi": "स", "audioId": "ta-s"},
+    {"native": "ह", "en": "ha", "hi": "ह", "audioId": "ta-ha"},
+    {"native": "ള", "en": "ḷa", "hi": "ळ", "audioId": "ta-la2"},
+    {"native": "ற", "en": "zha", "hi": "ज़", "audioId": "ta-zha"},
+    {"native": "ড", "en": "ṟa", "hi": "ड़", "audioId": "ta-ra2"},
+    {"native": "ক़", "en": "qa", "hi": "क़", "audioId": "ta-qa"},
+    {"native": "ఖ़", "en": "kha", "hi": "ख़", "audioId": "ta-kha"},
+    {"native": "ग़", "en": "ga", "hi": "ग़", "audioId": "ta-ga"},
+    {"native": "জ़", "en": "za", "hi": "ज़", "audioId": "ta-za"},
+    {"native": "ड़", "en": "da", "hi": "ड़", "audioId": "ta-da"},
+    {"native": "ఢ़", "en": "dha", "hi": "ढ़", "audioId": "ta-dha"},
+    {"native": "ফ", "en": "fa", "hi": "फ", "audioId": "ta-fa"},
+    {"native": "भ़", "en": "bha", "hi": "भ", "audioId": "ta-bha"},
+    {"native": "ہ", "en": "ha", "hi": "ह", "audioId": "ta-h"},
+    {"native": "় ", "en": "nukta", "hi": "़", "audioId": "ta-nukta"},
+    {"native": "ৎ", "en": "anusvara", "hi": "ः", "audioId": "ta-anusvara"},
+    {"native": "ः", "en": "visarga", "hi": "ः", "audioId": "ta-visarga"},
+    {"native": "ॐ", "en": "om", "hi": "ॐ", "audioId": "ta-om"},
+    {"native": "়", "en": "candrabindu", "hi": "ँ", "audioId": "ta-candrabindu"},
+    {"native": "ঃ", "en": "aha", "hi": "अह", "audioId": "ta-aha"}
+  ],
+  "vowels": [
+    {"native": "ா", "en": "-aa", "hi": "ा", "audioId": "ta-aa"},
+    {"native": "ி", "en": "-i", "hi": "ि", "audioId": "ta-i"},
+    {"native": "ீ", "en": "-ee", "hi": "ी", "audioId": "ta-ee"},
+    {"native": "ு", "en": "-u", "hi": "ु", "audioId": "ta-u"},
+    {"native": "ூ", "en": "-oo", "hi": "ू", "audioId": "ta-oo"},
+    {"native": "ெ", "en": "-e", "hi": "े", "audioId": "ta-e"},
+    {"native": "ே", "en": "-ae", "hi": "ै", "audioId": "ta-ae"},
+    {"native": "ொ", "en": "-o", "hi": "ॊ", "audioId": "ta-o"},
+    {"native": "ோ", "en": "-oh", "hi": "ो", "audioId": "ta-oh"},
+    {"native": "ௌ", "en": "-au", "hi": "ौ", "audioId": "ta-au"},
+    {"native": "ം", "en": "-am", "hi": "ं", "audioId": "ta-am"},
+    {"native": "ଃ", "en": "-ah", "hi": "ः", "audioId": "ta-ah"},
+    {"native": "", "en": "-a", "hi": "अ", "audioId": "ta-a"}
+  ],
+  "sentences": {
+    "general": [
+      {
+        "native": "நீங்கள் எப்படி இருக்கிறீர்கள்?",
+        "en": "How are you?",
+        "hi": "आप कैसे हैं?"
+      },
+      {
+        "native": "நான் நன்றாக இருக்கிறேன்",
+        "en": "I am fine",
+        "hi": "मैं ठीक हूँ"
+      },
+      {
+        "native": "உங்கள் பெயர் என்ன?",
+        "en": "What is your name?",
+        "hi": "आपका नाम क्या है?"
+      },
+      {
+        "native": "என் பெயர் அரவிந்த்",
+        "en": "My name is Arvind",
+        "hi": "मेरा नाम अरविंद है"
+      },
+      {
+        "native": "வ안க்கम்",
+        "en": "Goodbye",
+        "hi": "अलविदा"
+      }
+    ],
+    "shopping": [
+      {
+        "native": "இதன் விலை என்ன?",
+        "en": "What is the price?",
+        "hi": "इसकी कीमत क्या है?"
+      },
+      {
+        "native": "இது மிக महंगை",
+        "en": "This is very expensive",
+        "hi": "यह बहुत महंगा है"
+      },
+      {
+        "native": "தள்ளிக்குக ஏதும் உண்டா?",
+        "en": "Do you have any discount?",
+        "hi": "क्या आपके पास कोई छूट है?"
+      },
+      {
+        "native": "எனக்கு இதை வாங்க வேண்டும்",
+        "en": "I want to buy this",
+        "hi": "मुझे यह खरीदना है"
+      },
+      {
+        "native": "நான் பணத்தில் குடுப்பேன்",
+        "en": "I will pay cash",
+        "hi": "मैं नकद भुगतान करूंगा"
+      }
+    ],
+    "cooking": [
+      {
+        "native": "இது வெந்து விட்டதா?",
+        "en": "Is this cooked?",
+        "hi": "क्या यह पका हुआ है?"
+      },
+      {
+        "native": "நீங்கள் மிக நன்றாக요리 செய்கிறீர்கள்",
+        "en": "You cook very well",
+        "hi": "आप बहुत अच्छा खाना बनाते हैं"
+      },
+      {
+        "native": "எனக்கு இது அதிக உப்புடன் பிடிக்கிறது",
+        "en": "I like it more salty",
+        "hi": "मुझे यह अधिक नमकीन पसंद है"
+      },
+      {
+        "native": "எனக்கு சிறிது வெண்ணை குடுக்கலாம?",
+        "en": "Can I have some butter?",
+        "hi": "क्या मुझे कुछ मक्खन मिल सकता है?"
+      },
+      {
+        "native": "மிக சுவையான உணவு",
+        "en": "Very delicious food",
+        "hi": "बहुत स्वादिष्ट भोजन"
+      }
+    ]
+  }
+}

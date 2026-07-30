@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malayalam Consonant-Vowel Table — Part 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f14;
+    --surface: #1a1a24;
+    --border: #2e2e42;
+    --accent: #7c6af7;
+    --accent2: #e8a44a;
+    --text: #e8e8f0;
+    --subtext: #8888a8;
+    --cell-hover: #25253a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #e8a44a, #f07070);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    color: var(--subtext);
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+
+  .vowel-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .vowel-legend span {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    color: var(--subtext);
+  }
+
+  .vowel-legend span strong {
+    color: var(--accent2);
+    font-weight: 600;
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    font-size: 1rem;
+    margin-right: 3px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  thead th {
+    background: var(--surface);
+    padding: 0.7rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent2);
+    text-align: center;
+    border-bottom: 2px solid var(--accent2);
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  thead th:first-child {
+    text-align: left;
+    padding-left: 1rem;
+    color: var(--subtext);
+    min-width: 140px;
+    border-bottom-color: var(--border);
+  }
+
+  thead .vowel-ml {
+    display: block;
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text);
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  thead .vowel-label {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--accent2);
+    letter-spacing: 0.06em;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--cell-hover); }
+  tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+  tbody tr:nth-child(even):hover { background: var(--cell-hover); }
+
+  .cons-cell {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .cons-ml {
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    font-size: 1.4rem;
+    color: var(--text);
+    display: block;
+    line-height: 1.4;
+  }
+
+  .cons-en {
+    font-size: 0.7rem;
+    color: var(--subtext);
+    display: block;
+    margin-top: 1px;
+    font-weight: 400;
+  }
+
+  .vow-cell {
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    min-width: 90px;
+    border-right: 1px solid rgba(46,46,66,0.5);
+  }
+
+  .vow-cell:last-child { border-right: none; }
+
+  .vow-ml {
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    font-size: 1.35rem;
+    color: #c8c8e8;
+    display: block;
+    line-height: 1.4;
+  }
+
+  .vow-en {
+    font-size: 0.67rem;
+    color: var(--subtext);
+    display: block;
+    margin-top: 2px;
+    letter-spacing: 0.01em;
+  }
+
+  .section-row td {
+    background: rgba(232,164,74,0.07);
+    padding: 0.3rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .note-box {
+    max-width: 900px;
+    margin: 1.5rem auto 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-size: 0.78rem;
+    color: var(--subtext);
+    line-height: 1.7;
+  }
+
+  .note-box strong {
+    color: var(--accent2);
+  }
+
+  .note-box .ml {
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: var(--subtext);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Malayalam Consonant + Vowel Matrix — Part 2</h1>
+  <p>All 36 primary consonants × 5 remaining vowel/diacritic forms</p>
+</header>
+
+<div class="vowel-legend">
+  <span><strong>കൊ</strong> ko (short o)</span>
+  <span><strong>കോ</strong> koo / koh (long o)</span>
+  <span><strong>കൗ</strong> kau (diphthong)</span>
+  <span><strong>കം</strong> kam (anusvara · nasal)</span>
+  <span><strong>കഃ</strong> kah (visarga · aspiration)</span>
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Consonant</th>
+      <th>
+        <span class="vowel-ml">ൊ</span>
+        <span class="vowel-label">-o (short)</span>
+      </th>
+      <th>
+        <span class="vowel-ml">ോ</span>
+        <span class="vowel-label">-oh (long)</span>
+      </th>
+      <th>
+        <span class="vowel-ml">ൗ / ൌ</span>
+        <span class="vowel-label">-au</span>
+      </th>
+      <th>
+        <span class="vowel-ml">ം</span>
+        <span class="vowel-label">-am (nasal)</span>
+      </th>
+      <th>
+        <span class="vowel-ml">ഃ</span>
+        <span class="vowel-label">-ah (aspir.)</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr class="section-row"><td colspan="6">Velar stops (K group)</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ക</span><span class="cons-en">ka</span></td>
+      <td class="vow-cell"><span class="vow-ml">കൊ</span><span class="vow-en">ko</span></td>
+      <td class="vow-cell"><span class="vow-ml">കോ</span><span class="vow-en">koh</span></td>
+      <td class="vow-cell"><span class="vow-ml">കൗ</span><span class="vow-en">kau</span></td>
+      <td class="vow-cell"><span class="vow-ml">കം</span><span class="vow-en">kam</span></td>
+      <td class="vow-cell"><span class="vow-ml">കഃ</span><span class="vow-en">kah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഖ</span><span class="cons-en">kha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഖൊ</span><span class="vow-en">kho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഖോ</span><span class="vow-en">khoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഖൗ</span><span class="vow-en">khau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഖം</span><span class="vow-en">kham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഖഃ</span><span class="vow-en">khah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഗ</span><span class="cons-en">ga</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഗൊ</span><span class="vow-en">go</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഗോ</span><span class="vow-en">goh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഗൗ</span><span class="vow-en">gau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഗം</span><span class="vow-en">gam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഗഃ</span><span class="vow-en">gah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഘ</span><span class="cons-en">gha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഘൊ</span><span class="vow-en">gho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഘോ</span><span class="vow-en">ghoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഘൗ</span><span class="vow-en">ghau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഘം</span><span class="vow-en">gham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഘഃ</span><span class="vow-en">ghah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ങ</span><span class="cons-en">nga</span></td>
+      <td class="vow-cell"><span class="vow-ml">ങൊ</span><span class="vow-en">ngo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ങോ</span><span class="vow-en">ngoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ങൗ</span><span class="vow-en">ngau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ങം</span><span class="vow-en">ngam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ങഃ</span><span class="vow-en">ngah</span></td>
+    </tr>
+
+    <tr class="section-row"><td colspan="6">Palatal stops (Ch group)</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ച</span><span class="cons-en">cha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ചൊ</span><span class="vow-en">cho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ചോ</span><span class="vow-en">choh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ചൗ</span><span class="vow-en">chau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ചം</span><span class="vow-en">cham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ചഃ</span><span class="vow-en">chah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഛ</span><span class="cons-en">chha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഛൊ</span><span class="vow-en">chho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഛോ</span><span class="vow-en">chhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഛൗ</span><span class="vow-en">chhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഛം</span><span class="vow-en">chham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഛഃ</span><span class="vow-en">chhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ജ</span><span class="cons-en">ja</span></td>
+      <td class="vow-cell"><span class="vow-ml">ജൊ</span><span class="vow-en">jo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ജോ</span><span class="vow-en">joh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ജൗ</span><span class="vow-en">jau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ജം</span><span class="vow-en">jam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ജഃ</span><span class="vow-en">jah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഝ</span><span class="cons-en">jha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഝൊ</span><span class="vow-en">jho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഝോ</span><span class="vow-en">jhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഝൗ</span><span class="vow-en">jhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഝം</span><span class="vow-en">jham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഝഃ</span><span class="vow-en">jhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഞ</span><span class="cons-en">nya</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഞൊ</span><span class="vow-en">nyo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഞോ</span><span class="vow-en">nyoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഞൗ</span><span class="vow-en">nyau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഞം</span><span class="vow-en">nyam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഞഃ</span><span class="vow-en">nyah</span></td>
+    </tr>
+
+    <tr class="section-row"><td colspan="6">Retroflex stops (T group)</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ട</span><span class="cons-en">ṭa (hard T)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ടൊ</span><span class="vow-en">ṭo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ടോ</span><span class="vow-en">ṭoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ടൗ</span><span class="vow-en">ṭau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ടം</span><span class="vow-en">ṭam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ടഃ</span><span class="vow-en">ṭah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഠ</span><span class="cons-en">ṭha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഠൊ</span><span class="vow-en">ṭho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഠോ</span><span class="vow-en">ṭhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഠൗ</span><span class="vow-en">ṭhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഠം</span><span class="vow-en">ṭham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഠഃ</span><span class="vow-en">ṭhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഡ</span><span class="cons-en">ḍa (hard D)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഡൊ</span><span class="vow-en">ḍo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഡോ</span><span class="vow-en">ḍoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഡൗ</span><span class="vow-en">ḍau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഡം</span><span class="vow-en">ḍam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഡഃ</span><span class="vow-en">ḍah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഢ</span><span class="cons-en">ḍha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഢൊ</span><span class="vow-en">ḍho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഢോ</span><span class="vow-en">ḍhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഢൗ</span><span class="vow-en">ḍhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഢം</span><span class="vow-en">ḍham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഢഃ</span><span class="vow-en">ḍhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ണ</span><span class="cons-en">ṇa (retroflex N)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ണൊ</span><span class="vow-en">ṇo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ണോ</span><span class="vow-en">ṇoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ണൗ</span><span class="vow-en">ṇau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ണം</span><span class="vow-en">ṇam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ണഃ</span><span class="vow-en">ṇah</span></td>
+    </tr>
+
+    <tr class="section-row"><td colspan="6">Dental stops (T/D group — soft)</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ത</span><span class="cons-en">tha (soft T)</span></td>
+      <td class="vow-cell"><span class="vow-ml">തൊ</span><span class="vow-en">tho</span></td>
+      <td class="vow-cell"><span class="vow-ml">തോ</span><span class="vow-en">thoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">തൗ</span><span class="vow-en">thau</span></td>
+      <td class="vow-cell"><span class="vow-ml">തം</span><span class="vow-en">tham</span></td>
+      <td class="vow-cell"><span class="vow-ml">തഃ</span><span class="vow-en">thah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഥ</span><span class="cons-en">thha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഥൊ</span><span class="vow-en">thho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഥോ</span><span class="vow-en">thhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഥൗ</span><span class="vow-en">thhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഥം</span><span class="vow-en">thham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഥഃ</span><span class="vow-en">thhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ദ</span><span class="cons-en">da (soft D)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ദൊ</span><span class="vow-en">do</span></td>
+      <td class="vow-cell"><span class="vow-ml">ദോ</span><span class="vow-en">doh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ദൗ</span><span class="vow-en">dau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ദം</span><span class="vow-en">dam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ദഃ</span><span class="vow-en">dah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ധ</span><span class="cons-en">dha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ധൊ</span><span class="vow-en">dho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ധോ</span><span class="vow-en">dhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ധൗ</span><span class="vow-en">dhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ധം</span><span class="vow-en">dham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ധഃ</span><span class="vow-en">dhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ന</span><span class="cons-en">na (dental N)</span></td>
+      <td class="vow-cell"><span class="vow-ml">നൊ</span><span class="vow-en">no</span></td>
+      <td class="vow-cell"><span class="vow-ml">നോ</span><span class="vow-en">noh</span></td>
+      <td class="vow-cell"><span class="vow-ml">നൗ</span><span class="vow-en">nau</span></td>
+      <td class="vow-cell"><span class="vow-ml">നം</span><span class="vow-en">nam</span></td>
+      <td class="vow-cell"><span class="vow-ml">നഃ</span><span class="vow-en">nah</span></td>
+    </tr>
+
+    <tr class="section-row"><td colspan="6">Labial stops (P group)</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">പ</span><span class="cons-en">pa</span></td>
+      <td class="vow-cell"><span class="vow-ml">പൊ</span><span class="vow-en">po</span></td>
+      <td class="vow-cell"><span class="vow-ml">പോ</span><span class="vow-en">poh</span></td>
+      <td class="vow-cell"><span class="vow-ml">പൗ</span><span class="vow-en">pau</span></td>
+      <td class="vow-cell"><span class="vow-ml">പം</span><span class="vow-en">pam</span></td>
+      <td class="vow-cell"><span class="vow-ml">പഃ</span><span class="vow-en">pah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഫ</span><span class="cons-en">pha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഫൊ</span><span class="vow-en">pho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഫോ</span><span class="vow-en">phoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഫൗ</span><span class="vow-en">phau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഫം</span><span class="vow-en">pham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഫഃ</span><span class="vow-en">phah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ബ</span><span class="cons-en">ba</span></td>
+      <td class="vow-cell"><span class="vow-ml">ബൊ</span><span class="vow-en">bo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ബോ</span><span class="vow-en">boh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ബൗ</span><span class="vow-en">bau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ബം</span><span class="vow-en">bam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ബഃ</span><span class="vow-en">bah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഭ</span><span class="cons-en">bha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഭൊ</span><span class="vow-en">bho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഭോ</span><span class="vow-en">bhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഭൗ</span><span class="vow-en">bhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഭം</span><span class="vow-en">bham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഭഃ</span><span class="vow-en">bhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">മ</span><span class="cons-en">ma</span></td>
+      <td class="vow-cell"><span class="vow-ml">മൊ</span><span class="vow-en">mo</span></td>
+      <td class="vow-cell"><span class="vow-ml">മോ</span><span class="vow-en">moh</span></td>
+      <td class="vow-cell"><span class="vow-ml">മൗ</span><span class="vow-en">mau</span></td>
+      <td class="vow-cell"><span class="vow-ml">മം</span><span class="vow-en">mam</span></td>
+      <td class="vow-cell"><span class="vow-ml">മഃ</span><span class="vow-en">mah</span></td>
+    </tr>
+
+    <tr class="section-row"><td colspan="6">Semivowels &amp; Liquids</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">യ</span><span class="cons-en">ya</span></td>
+      <td class="vow-cell"><span class="vow-ml">യൊ</span><span class="vow-en">yo</span></td>
+      <td class="vow-cell"><span class="vow-ml">യോ</span><span class="vow-en">yoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">യൗ</span><span class="vow-en">yau</span></td>
+      <td class="vow-cell"><span class="vow-ml">യം</span><span class="vow-en">yam</span></td>
+      <td class="vow-cell"><span class="vow-ml">യഃ</span><span class="vow-en">yah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ര</span><span class="cons-en">ra</span></td>
+      <td class="vow-cell"><span class="vow-ml">രൊ</span><span class="vow-en">ro</span></td>
+      <td class="vow-cell"><span class="vow-ml">രോ</span><span class="vow-en">roh</span></td>
+      <td class="vow-cell"><span class="vow-ml">രൗ</span><span class="vow-en">rau</span></td>
+      <td class="vow-cell"><span class="vow-ml">രം</span><span class="vow-en">ram</span></td>
+      <td class="vow-cell"><span class="vow-ml">രഃ</span><span class="vow-en">rah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ല</span><span class="cons-en">la</span></td>
+      <td class="vow-cell"><span class="vow-ml">ലൊ</span><span class="vow-en">lo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ലോ</span><span class="vow-en">loh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ലൗ</span><span class="vow-en">lau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ലം</span><span class="vow-en">lam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ലഃ</span><span class="vow-en">lah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">വ</span><span class="cons-en">va</span></td>
+      <td class="vow-cell"><span class="vow-ml">വൊ</span><span class="vow-en">vo</span></td>
+      <td class="vow-cell"><span class="vow-ml">വോ</span><span class="vow-en">voh</span></td>
+      <td class="vow-cell"><span class="vow-ml">വൗ</span><span class="vow-en">vau</span></td>
+      <td class="vow-cell"><span class="vow-ml">വം</span><span class="vow-en">vam</span></td>
+      <td class="vow-cell"><span class="vow-ml">വഃ</span><span class="vow-en">vah</span></td>
+    </tr>
+
+    <tr class="section-row"><td colspan="6">Sibilants &amp; Aspirates</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ശ</span><span class="cons-en">sha (palatal)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ശൊ</span><span class="vow-en">sho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ശോ</span><span class="vow-en">shoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ശൗ</span><span class="vow-en">shau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ശം</span><span class="vow-en">sham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ശഃ</span><span class="vow-en">shah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഷ</span><span class="cons-en">ṣha (retroflex)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഷൊ</span><span class="vow-en">ṣho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഷോ</span><span class="vow-en">ṣhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഷൗ</span><span class="vow-en">ṣhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഷം</span><span class="vow-en">ṣham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഷഃ</span><span class="vow-en">ṣhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">സ</span><span class="cons-en">sa (dental)</span></td>
+      <td class="vow-cell"><span class="vow-ml">സൊ</span><span class="vow-en">so</span></td>
+      <td class="vow-cell"><span class="vow-ml">സോ</span><span class="vow-en">soh</span></td>
+      <td class="vow-cell"><span class="vow-ml">സൗ</span><span class="vow-en">sau</span></td>
+      <td class="vow-cell"><span class="vow-ml">സം</span><span class="vow-en">sam</span></td>
+      <td class="vow-cell"><span class="vow-ml">സഃ</span><span class="vow-en">sah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഹ</span><span class="cons-en">ha</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഹൊ</span><span class="vow-en">ho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഹോ</span><span class="vow-en">hoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഹൗ</span><span class="vow-en">hau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഹം</span><span class="vow-en">ham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഹഃ</span><span class="vow-en">hah</span></td>
+    </tr>
+
+    <tr class="section-row"><td colspan="6">Malayalam-specific consonants</td></tr>
+
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ള</span><span class="cons-en">ḷa (retroflex L)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ളൊ</span><span class="vow-en">ḷo</span></td>
+      <td class="vow-cell"><span class="vow-ml">ളോ</span><span class="vow-en">ḷoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ളൗ</span><span class="vow-en">ḷau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ളം</span><span class="vow-en">ḷam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ളഃ</span><span class="vow-en">ḷah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ഴ</span><span class="cons-en">zha (unique)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഴൊ</span><span class="vow-en">zho</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഴോ</span><span class="vow-en">zhoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഴൗ</span><span class="vow-en">zhau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഴം</span><span class="vow-en">zham</span></td>
+      <td class="vow-cell"><span class="vow-ml">ഴഃ</span><span class="vow-en">zhah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">റ</span><span class="cons-en">ṟa (trill R)</span></td>
+      <td class="vow-cell"><span class="vow-ml">റൊ</span><span class="vow-en">ṟo</span></td>
+      <td class="vow-cell"><span class="vow-ml">റോ</span><span class="vow-en">ṟoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">റൗ</span><span class="vow-en">ṟau</span></td>
+      <td class="vow-cell"><span class="vow-ml">റം</span><span class="vow-en">ṟam</span></td>
+      <td class="vow-cell"><span class="vow-ml">റഃ</span><span class="vow-en">ṟah</span></td>
+    </tr>
+    <tr>
+      <td class="cons-cell"><span class="cons-ml">ൻ</span><span class="cons-en">ña (alveolar N)</span></td>
+      <td class="vow-cell"><span class="vow-ml">ൻൊ</span><span class="vow-en">ño</span></td>
+      <td class="vow-cell"><span class="vow-ml">ൻോ</span><span class="vow-en">ñoh</span></td>
+      <td class="vow-cell"><span class="vow-ml">ൻൗ</span><span class="vow-en">ñau</span></td>
+      <td class="vow-cell"><span class="vow-ml">ൻം</span><span class="vow-en">ñam</span></td>
+      <td class="vow-cell"><span class="vow-ml">ൻഃ</span><span class="vow-en">ñah</span></td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="note-box">
+  <strong>Diacritic notes:</strong><br>
+  · <span class="ml">ൊ / ോ</span> — The short-o and long-o matras wrap around the left <em>and</em> right of the base consonant (split diacritics); rendering may vary by font.<br>
+  · <span class="ml">ൗ</span> (au-length mark) vs <span class="ml">ൌ</span> (old-form au) — both are valid Unicode; modern usage prefers <span class="ml">ൗ</span> combined with the <span class="ml">െ</span> matra as <span class="ml">ൌ</span>.<br>
+  · <span class="ml">ം</span> (anusvara / chandrabindu) — nasalises the syllable; pronounced like a nasal "m" or "ng" depending on the following consonant.<br>
+  · <span class="ml">ഃ</span> (visarga) — adds a soft "h" echo after the vowel; mostly used in Sanskrit loanwords in Malayalam.
+</div>
+
+<footer>
+  36 consonants × 5 vowel/diacritic forms &nbsp;·&nbsp; Part 2 of 2 &nbsp;·&nbsp; Malayalam script (Brahmic family)
+</footer>
+
+</body>
+</html>
