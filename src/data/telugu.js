@@ -1,4 +1,4 @@
-{
+export default {
   "name": "Telugu",
   "consonants": [
     {"native": "క", "en": "ka", "hi": "क", "audioId": "te-ka"},

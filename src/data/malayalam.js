@@ -1,4 +1,4 @@
-{
+export default {
   "name": "Malayalam",
   "consonants": [
     {"native": "ക", "en": "ka", "hi": "क", "audioId": "ml-ka"},

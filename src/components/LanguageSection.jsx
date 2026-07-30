@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import CharacterMatrix from './CharacterMatrix'
 import SentenceSection from './SentenceSection'
+import malayalamData from '../data/malayalam'
+import kannadaData from '../data/kannada'
+import teluguData from '../data/telugu'
+import tamilData from '../data/tamil'
 import './LanguageSection.css'
 
 const languageData = {
-  malayalam: () => import('../data/malayalam.json'),
-  kannada: () => import('../data/kannada.json'),
-  telugu: () => import('../data/telugu.json'),
-  tamil: () => import('../data/tamil.json'),
+  malayalam: malayalamData,
+  kannada: kannadaData,
+  telugu: teluguData,
+  tamil: tamilData,
 }
 
 export default function LanguageSection({ languageId }) {
@@ -16,14 +20,13 @@ export default function LanguageSection({ languageId }) {
 
   useEffect(() => {
     setLoading(true)
-    languageData[languageId]()
-      .then((module) => {
-        setData(module.default)
-        setLoading(false)
-      })
-      .catch(() => {
-        setLoading(false)
-      })
+    const selectedData = languageData[languageId]
+    if (selectedData) {
+      setData(selectedData)
+      setLoading(false)
+    } else {
+      setLoading(false)
+    }
   }, [languageId])
 
   if (loading) {

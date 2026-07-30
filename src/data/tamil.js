@@ -1,4 +1,4 @@
-{
+export default {
   "name": "Tamil",
   "consonants": [
     {"native": "க", "en": "ka", "hi": "क", "audioId": "ta-ka"},
